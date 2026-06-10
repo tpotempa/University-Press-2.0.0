@@ -1,9 +1,6 @@
 package pl.edu.atar.university.press.data.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.NamedAttributeNode;
-import jakarta.persistence.NamedEntityGraph;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -36,11 +33,12 @@ public class PaperBook extends Book {
 
     private String binding;
 
+
     @ManyToMany(fetch = EAGER)
     @Fetch(FetchMode.SUBSELECT)
     private List<Author> authors = new ArrayList<>();
 
-    @ManyToMany(fetch = EAGER)
+    @ManyToMany(fetch = EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @Fetch(FetchMode.SUBSELECT)
     private Set<Category> categories = new LinkedHashSet<>();
 
@@ -59,7 +57,7 @@ public class PaperBook extends Book {
 
     @Override
     public void setAuthors(List<Author> authors) {
-
+        this.authors = authors;
     }
 
     @Override
@@ -69,7 +67,7 @@ public class PaperBook extends Book {
 
     @Override
     public void setCategories(Set<Category> categories) {
-
+        this.categories = categories;
     }
 
 }
