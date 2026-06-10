@@ -1,0 +1,5 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="rest-api-888-22-330-3214-5" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_888-22-330-3214-5.http" executionIdentifier="#1">
+    <method v="2" />
+  </configuration>
+</component>
