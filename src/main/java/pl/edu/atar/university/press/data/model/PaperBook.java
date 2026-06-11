@@ -34,12 +34,12 @@ public class PaperBook extends Book {
     private String binding;
 
 
-    @ManyToMany(fetch = EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany(fetch = EAGER, cascade = {CascadeType.MERGE})
     @Fetch(FetchMode.SUBSELECT)
     private List<Author> authors = new ArrayList<>();
 
-//@   ManyToMany(fetch = EAGER, cascade = {CascadeType.MERGE})
-//    @Fetch(FetchMode.SUBSELECT)
+    @ManyToMany(fetch = EAGER, cascade = {CascadeType.MERGE})
+    @Fetch(FetchMode.SUBSELECT)
     private Set<Category> categories = new LinkedHashSet<>();
 
     public PaperBook() {
